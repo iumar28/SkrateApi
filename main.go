@@ -33,10 +33,10 @@ var Meetings []Meeting
 func handleRequests() {
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/", homePage)
-	myRouter.HandleFunc("/allUsers", returnAllUsers)                     //GET return all the Users
-	myRouter.HandleFunc("/allMeetings", returnAllMeetings)               //GET return all the Meetings
-	myRouter.HandleFunc("/newUser", createNewUser).Methods("POST")       //Add new user
-	myRouter.HandleFunc("/newMeeting", createNewMeeting).Methods("POST") //Add new Meeting
+	myRouter.HandleFunc("/users/all", returnAllUsers)                      //GET return all the Users
+	myRouter.HandleFunc("/meetings/all", returnAllMeetings)                //GET return all the Meetings
+	myRouter.HandleFunc("/users/new", createNewUser).Methods("POST")       //Add new user
+	myRouter.HandleFunc("/meetings/new", createNewMeeting).Methods("POST") //Add new Meeting
 	log.Fatal(http.ListenAndServe(":10000", myRouter))
 }
 
